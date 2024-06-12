@@ -1,23 +1,21 @@
 import React from "react";
-import Card from "../Card";
 import Hola from "../saludo";
-import imagen from "../images/genshin-impact-arlecchino.jpg"
-import imagen2 from "../images/furina-genshin-impact.png"
 import Iteracion from "../itinerante";
+import Boton from "../Boton";
 
 export default class Maestro extends React.Component{
     state={
-        data:[{
-            id:1,
-            "nombre":"Arlecchino",
-            "descripcion":"Se caracteriza por su firmeza y frialdad",
-            "img":imagen
-        },{
-            id:2,
-            "nombre":"Furina",
-            "descripcion":"Se caracteriza por ser elegante e inocente",
-            "img":imagen2
-        }]
+        data:[]
+    }
+    async componentDidMount(){
+        await this.cargarComponentes()
+    }
+    cargarComponentes=async()=>{
+        let res=await fetch('http://localhost:8000/api/info')
+        let data = await res.json()
+        this.setState({
+            data
+        })
     }
     render(){
         return(
@@ -28,7 +26,9 @@ export default class Maestro extends React.Component{
                 <Iteracion
                 chao = {this.state.data}
                 />
+                <Boton/>
             </div>
+            
         )
     }
 }

@@ -1,27 +1,53 @@
 import React from "react";
 
-export default class Formulario extends React.Component{
-    state={}
-    handleSummit=e=>{
-        this.setState({[e.target.name]:e.target.value})
-    }
-    render(){
-        return(
+export default class Formulario extends React.Component {
+    state = {
+        Formulario: {
+            nombre: "",
+            descripcion: "",
+            img: ""
+        }
+    };
+
+    handleSummit = e => {
+        this.setState({
+            Formulario: {
+                ...this.state.Formulario,
+                [e.target.name]: e.target.value
+            }
+        });
+    };
+
+    render() {
+        const {onSubmit } = this.props;
+        const { Formulario } = this.state;
+        return (
             <div>
-                <form onSubmit={this.handleSummit}>
+                <form onSubmit={onSubmit}>
                     <input
-                    type="text"
-                    placeholder="Nombre"
-                    name= "nombre"
-                    onChange={this.handleChange}
-                    value={this.state.nombre}
+                        type="text"
+                        placeholder="Nombre"
+                        name="nombre"
+                        onChange={this.handleSummit}
+                        value={Formulario.nombre}
                     />
-                    <button
-                    type="submit">
-                        Enviar
-                    </button>
+                    <input
+                        type="text"
+                        placeholder="Descripcion"
+                        name="descripcion"
+                        onChange={this.handleSummit}
+                        value={Formulario.descripcion}
+                    />
+                    <input
+                        type="text"
+                        placeholder="url"
+                        name="img"
+                        onChange={this.handleSummit}
+                        value={Formulario.img}
+                    />
+                    <button type="submit">Enviar</button>
                 </form>
             </div>
-        )
+        );
     }
 }
