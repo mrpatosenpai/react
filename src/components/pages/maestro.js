@@ -1,11 +1,13 @@
 import React from "react";
 import Hola from "../saludo";
-import Iteracion from "../itinerante";
+import Iterador from "../itinerante";
 import Boton from "../Boton";
 
 export default class Maestro extends React.Component{
     state={
-        data:[]
+        data:[
+
+        ]
     }
     async componentDidMount(){
         await this.cargarComponentes()
@@ -18,12 +20,14 @@ export default class Maestro extends React.Component{
         })
     }
     render(){
+        console.log(this.state.data);
         return(
+            
             <div>
                 <Hola
                 username="Juan"
                 />
-                <Iteracion
+                <Iterador
                 chao = {this.state.data}
                 />
                 <Boton/>

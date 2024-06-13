@@ -1,53 +1,27 @@
 import React from "react";
 
-export default class Formulario extends React.Component {
-    state = {
-        Formulario: {
-            nombre: "",
-            descripcion: "",
-            img: ""
-        }
-    };
+export default class Formulario extends React.Component{
 
-    handleSummit = e => {
-        this.setState({
-            Formulario: {
-                ...this.state.Formulario,
-                [e.target.name]: e.target.value
-            }
-        });
-    };
-
-    render() {
-        const {onSubmit } = this.props;
-        const { Formulario } = this.state;
-        return (
+    render(){
+        const {onChange,form,onSubmit} = this.props
+        return(
             <div>
                 <form onSubmit={onSubmit}>
-                    <input
-                        type="text"
-                        placeholder="Nombre"
-                        name="nombre"
-                        onChange={this.handleSummit}
-                        value={Formulario.nombre}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Descripcion"
-                        name="descripcion"
-                        onChange={this.handleSummit}
-                        value={Formulario.descripcion}
-                    />
-                    <input
-                        type="text"
-                        placeholder="url"
-                        name="img"
-                        onChange={this.handleSummit}
-                        value={Formulario.img}
-                    />
+                    <div>
+                        <label>Nombre:</label>
+                        <input type="text" name="nombre" placeholder="Nombre aqui!!" onChange={onChange} value={form.nombre}/>
+                    </div>
+                    <div>
+                        <label>Descripcion:</label>
+                        <input type="text" name="descripcion" placeholder="Descipcion aqui!!" onChange={onChange} value={form.descripcion}/>
+                    </div>
+                    <div>
+                        <label>Url de la imagen:</label>
+                        <input type="text" name="img" placeholder="Imagen aqui!!" onChange={onChange} value={form.img}/>
+                    </div>
                     <button type="submit">Enviar</button>
                 </form>
             </div>
-        );
+        )
     }
 }

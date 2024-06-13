@@ -1,18 +1,23 @@
 import React from "react";
 import Card from "./Card";
 
-export default function Iteracion(props){
-    return(
+const Iterador = ({chao}) => {
+    return (
         <div>
-            {props.chao.map((chao)=>{
-                return(
+            {chao.length > 0 ? (
+                chao.map((chaoItem) => (
                     <Card
-                    nombre={chao.nombre}
-                    descripcion={chao.descripcion}
-                    img={chao.img}
+                        key={chaoItem.id}
+                        nombre={chaoItem.nombre}
+                        descripcion={chaoItem.descripcion}
+                        img={chaoItem.img}
                     />
-                )
-            })}
+                ))
+            ) : (
+                <p>No hay datos disponibles</p>
+            )}
         </div>
-    )
-}
+    );
+};
+
+export default  Iterador
