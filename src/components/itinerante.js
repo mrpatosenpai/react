@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const Iterador = ({chao}) => {
     return (
-        <div>
+        <React.Fragment>
             {chao.length > 0 ? (
                 chao.map((chaoItem) => (
                     <Card
@@ -16,7 +16,7 @@ const Iterador = ({chao}) => {
             ) : (
                 <p>No hay datos disponibles</p>
             )}
-        </div>
+        </React.Fragment>
     );
 };
 

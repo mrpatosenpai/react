@@ -33,7 +33,9 @@ export default class Wenas extends React.Component {
         let res = await fetch('http://localhost:8000/api/info',config)
         let json = await res.json()
         console.log(json)
+        this.props.navigate('/Maestro')
     }
+
     catch(error){
 
     }

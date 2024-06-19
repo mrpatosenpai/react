@@ -5,7 +5,7 @@ export default class Formulario extends React.Component{
     render(){
         const {onChange,form,onSubmit} = this.props
         return(
-            <div>
+            <React.Fragment>
                 <form onSubmit={onSubmit}>
                     <div>
                         <label>Nombre:</label>
@@ -21,7 +21,7 @@ export default class Formulario extends React.Component{
                     </div>
                     <button type="submit">Enviar</button>
                 </form>
-            </div>
+            </React.Fragment>
         )
     }
 }
