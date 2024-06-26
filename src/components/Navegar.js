@@ -1,11 +1,10 @@
 import React from "react";
-
-import Wenas from "./pages/wenas";
+import Contenedor from "./pages/Contenedor";
 import { useNavigate } from "react-router-dom";
 
-const Navegar =()=>{
-    const navigate= useNavigate()
-    return <Wenas navigates={navigate}/>
+const Navegar = () => {
+  const navigate = useNavigate();
+  return <Contenedor navigate={navigate} />;
 }
 
-export default Navegar
+export default Navegar;
