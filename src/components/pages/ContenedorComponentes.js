@@ -1,19 +1,14 @@
-import React,{useState,useEffect} from "react";
+import React from "react";
 import RenderMaestro from "../RenderMaestro";
+import useFetch from "../../hook/hook";
+import url from "../../config";
 
-const ContenedorComponentes =()=>{
-  const [data,SetData]=useState([])
-  useEffect(()=>{
-    const cargarComponentes =async()=>{
-      let res = await fetch('http://localhost:8000/api/info');
-      let data = await res.json();
-      SetData(data)
-    }
-    cargarComponentes()
-  },[])
+const ContenedorComponentes = () => {
+  const data = useFetch(`${url}/info`);
+
   return <RenderMaestro data={data} />;
+};
 
-}
 export default ContenedorComponentes;
 /* export default class ContenedorComponentes extends React.Component {
   state = {

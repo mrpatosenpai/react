@@ -3,8 +3,8 @@ import Formulario from "./Formulario";
 import Card from "./Card";
 
 const Dibujar = ({ form, onChange, onSubmit }) => (
-
-    <div>
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+     <div style={{ textAlign: 'center' }}>
       <Card {...form} />
       <Formulario
         onSubmit={onSubmit}
@@ -12,6 +12,8 @@ const Dibujar = ({ form, onChange, onSubmit }) => (
         form={form}
       />
     </div>
+  </div>
+   
   )
 
 

@@ -6,11 +6,13 @@ import Nofound from "./pages/nofound";
 import Navegar from "./Navegar";
 
 export default function App() {
+  
+    
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Nofound />} />
-        <Route path="/Maestro" element={<ContenedorComponentes />} />
+        <Route path="*" element={<Nofound />} />
+        <Route path="/" element={<ContenedorComponentes />} />
         <Route path="/Formulario" element={<Formulario />} />
         <Route path="/Contenedor" element={<Navegar />} />
       </Routes>
